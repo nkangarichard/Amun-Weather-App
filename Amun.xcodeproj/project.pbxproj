@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C0A00DB2B72F35C001D9E37 /* Avenir-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2C0A00DA2B72F35C001D9E37 /* Avenir-Medium.ttf */; };
+		2C2A50542B71E5620054F1BE /* Avenir-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2C2A50532B71E5620054F1BE /* Avenir-Black.ttf */; };
 		2CCD3B2B2B7165CE005A22D1 /* AmunApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCD3B2A2B7165CE005A22D1 /* AmunApp.swift */; };
 		2CCD3B2D2B7165CE005A22D1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCD3B2C2B7165CE005A22D1 /* ContentView.swift */; };
 		2CCD3B2F2B7165D0005A22D1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2CCD3B2E2B7165D0005A22D1 /* Assets.xcassets */; };
@@ -14,6 +16,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2C0A00DA2B72F35C001D9E37 /* Avenir-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Avenir-Medium.ttf"; sourceTree = "<group>"; };
+		2C2A50532B71E5620054F1BE /* Avenir-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Avenir-Black.ttf"; sourceTree = "<group>"; };
+		2C2A50552B71E5AE0054F1BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		2CCD3B272B7165CE005A22D1 /* Amun.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Amun.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CCD3B2A2B7165CE005A22D1 /* AmunApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmunApp.swift; sourceTree = "<group>"; };
 		2CCD3B2C2B7165CE005A22D1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -32,9 +37,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2C2A50522B71E3720054F1BE /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				2C0A00DA2B72F35C001D9E37 /* Avenir-Medium.ttf */,
+				2C2A50532B71E5620054F1BE /* Avenir-Black.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		2CCD3B1E2B7165CE005A22D1 = {
 			isa = PBXGroup;
 			children = (
+				2C2A50522B71E3720054F1BE /* Fonts */,
 				2CCD3B292B7165CE005A22D1 /* Amun */,
 				2CCD3B282B7165CE005A22D1 /* Products */,
 			);
@@ -51,6 +66,7 @@
 		2CCD3B292B7165CE005A22D1 /* Amun */ = {
 			isa = PBXGroup;
 			children = (
+				2C2A50552B71E5AE0054F1BE /* Info.plist */,
 				2CCD3B2A2B7165CE005A22D1 /* AmunApp.swift */,
 				2CCD3B2C2B7165CE005A22D1 /* ContentView.swift */,
 				2CCD3B2E2B7165D0005A22D1 /* Assets.xcassets */,
@@ -125,7 +141,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C0A00DB2B72F35C001D9E37 /* Avenir-Medium.ttf in Resources */,
 				2CCD3B322B7165D0005A22D1 /* Preview Assets.xcassets in Resources */,
+				2C2A50542B71E5620054F1BE /* Avenir-Black.ttf in Resources */,
 				2CCD3B2F2B7165D0005A22D1 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -275,6 +293,7 @@
 				DEVELOPMENT_TEAM = 4PJ639HKZZ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Amun/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -304,6 +323,7 @@
 				DEVELOPMENT_TEAM = 4PJ639HKZZ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Amun/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
