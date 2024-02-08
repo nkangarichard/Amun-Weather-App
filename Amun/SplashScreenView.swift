@@ -1,5 +1,5 @@
 //
-//  SplashScreenView.swift
+//  TestView.swift
 //  Amun
 //
 //  Created by Richard Nkanga on 07/02/2024.
