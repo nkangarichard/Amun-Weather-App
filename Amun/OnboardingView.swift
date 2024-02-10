@@ -31,6 +31,7 @@ struct OnboardingView: View {
         NavigationStack {
             ZStack {
                 Color(.background)
+                    .ignoresSafeArea(.all)
 
                 VStack {
                     //                    Text("Current Index = \(currentIndex)").font(.custom("Avenir-Black", size: 17))

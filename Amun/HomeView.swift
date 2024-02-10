@@ -8,10 +8,22 @@
 import SwiftUI
 
 struct HomeView: View {
+    
+    @State var locations = ["America", "Montreal", "Nigeria", "Poland", "London"]
+
     var body: some View {
         ZStack {
-            Text("thi si the home view")
-                .navigationBarBackButtonHidden(true)
+              Color(.background)
+                .ignoresSafeArea(.all)
+
+
+
+
+            VStack{
+
+            }
+
+
         }
         .background(Color.red)
     }
