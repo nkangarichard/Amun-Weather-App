@@ -8,8 +8,41 @@
 import SwiftUI
 
 struct SplashScreenView: View {
+    @State private var blink = false
+    @State private var goToOnboardingScreen = false
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationStack {
+            ZStack {
+                Color(.background)
+
+                VStack {
+                    Image("logo")
+                        .resizable()
+                        .frame(width: 114.5, height: 90.6)
+                        .opacity(blink ? 1 : 0)
+
+                        .onAppear {
+                            withAnimation(.linear(duration: 1.5).repeatForever(autoreverses: true)) {
+                                self.blink.toggle()
+                            }
+
+                            // Redirect to another view after 3 seconds
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                                goToOnboardingScreen = true
+                                UserDefaults.standard.set(true, forKey: "splashScreenShown")
+                            }
+                        }
+                        .navigationDestination(isPresented: $goToOnboardingScreen) {
+                            OnboardingView()
+                                .navigationBarBackButtonHidden(true)
+                                .ignoresSafeArea(.all)
+
+                        }
+                }
+            }
+            .ignoresSafeArea(.all)
+        }
     }
 }
 
