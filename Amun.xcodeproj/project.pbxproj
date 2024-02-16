@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		2C0A00DB2B72F35C001D9E37 /* Avenir-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2C0A00DA2B72F35C001D9E37 /* Avenir-Medium.ttf */; };
 		2C2A50542B71E5620054F1BE /* Avenir-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2C2A50532B71E5620054F1BE /* Avenir-Black.ttf */; };
+		2C3212432B77440C00708D62 /* WeatherDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C3212422B77440C00708D62 /* WeatherDataModel.swift */; };
 		2C51C62A2B76E1EE000A4C55 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C51C6292B76E1EE000A4C55 /* HomeView.swift */; };
 		2C51C62C2B76EB61000A4C55 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C51C62B2B76EB61000A4C55 /* OnboardingView.swift */; };
 		2C79663A2B74866C00ADFF2D /* SplashScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7966392B74866C00ADFF2D /* SplashScreenView.swift */; };
@@ -22,6 +23,7 @@
 		2C0A00DA2B72F35C001D9E37 /* Avenir-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Avenir-Medium.ttf"; sourceTree = "<group>"; };
 		2C2A50532B71E5620054F1BE /* Avenir-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Avenir-Black.ttf"; sourceTree = "<group>"; };
 		2C2A50552B71E5AE0054F1BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		2C3212422B77440C00708D62 /* WeatherDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDataModel.swift; sourceTree = "<group>"; };
 		2C51C6292B76E1EE000A4C55 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		2C51C62B2B76EB61000A4C55 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		2C7966392B74866C00ADFF2D /* SplashScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenView.swift; sourceTree = "<group>"; };
@@ -72,6 +74,7 @@
 		2CCD3B292B7165CE005A22D1 /* Amun */ = {
 			isa = PBXGroup;
 			children = (
+				2C3212422B77440C00708D62 /* WeatherDataModel.swift */,
 				2C51C62B2B76EB61000A4C55 /* OnboardingView.swift */,
 				2C51C6292B76E1EE000A4C55 /* HomeView.swift */,
 				2C2A50552B71E5AE0054F1BE /* Info.plist */,
@@ -166,6 +169,7 @@
 			files = (
 				2C51C62A2B76E1EE000A4C55 /* HomeView.swift in Sources */,
 				2C79663A2B74866C00ADFF2D /* SplashScreenView.swift in Sources */,
+				2C3212432B77440C00708D62 /* WeatherDataModel.swift in Sources */,
 				2CCD3B2D2B7165CE005A22D1 /* ContentView.swift in Sources */,
 				2C51C62C2B76EB61000A4C55 /* OnboardingView.swift in Sources */,
 				2CCD3B2B2B7165CE005A22D1 /* AmunApp.swift in Sources */,
