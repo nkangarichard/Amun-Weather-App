@@ -59,7 +59,7 @@ struct Main: Codable {
 
 // MARK: - Sys
 struct Sys: Codable {
-    let type, id: Int
+    let type, id: Int?
     let country: String
     let sunrise, sunset: Int
 }
@@ -76,7 +76,15 @@ struct Wind: Codable {
     let deg: Int
 }
 
-class Location: ObservableObject, Identifiable {
+class Location: ObservableObject, Identifiable, Equatable {
+
+        
+        static func == (lhs: Location, rhs: Location) -> Bool {
+            return lhs.name == rhs.name
+            // Add comparisons for other properties if needed
+        }
+
+
     let id = UUID()
     @Published var name: String
     @Published  var weatherDataModel: WeatherDataModel?
