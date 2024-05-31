@@ -11,6 +11,7 @@ import SwiftUI
 @main
 struct AmunApp: App {
     @AppStorage("onboardingShown") var onboardingShown: Bool = false
+    
 
     var body: some Scene {
         WindowGroup {

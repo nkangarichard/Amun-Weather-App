@@ -27,27 +27,32 @@ struct DetailView: View {
 
                 VStack {
 
-                    Button(action: {
-                    isDismissed()
+                    HStack {
+                        Spacer()
+
+                        Button(action: {
+                        isDismissed()
 
 
-                    }, label: {
-                        Text("Back")
-                            .font(.custom("Avenir-Medium", size: 10))
-                            .frame(width: 58, height: 27, alignment: .center)
-                            .background(
-                                RoundedRectangle(cornerRadius: 20)
-                                    .frame(width: 58, height: 27)
-                                    .foregroundStyle(.greyShadow)
-                                    .offset(x: -4, y: 4)
-                                    .overlay(
-                                        RoundedRectangle(cornerRadius: 20)
-                                            .frame(width: 58, height: 27)
-                                            .foregroundStyle(.text)
-                                    )
-                            )
-                            .foregroundColor(.textColorInversed)
+                        }, label: {
+                            Text("Back")
+                                .font(.custom("Avenir-Medium", size: 10))
+                                .frame(width: 58, height: 27, alignment: .center)
+                                .background(
+                                    RoundedRectangle(cornerRadius: 20)
+                                        .frame(width: 58, height: 27)
+                                        .foregroundStyle(.greyShadow)
+                                        .offset(x: -4, y: 4)
+                                        .overlay(
+                                            RoundedRectangle(cornerRadius: 20)
+                                                .frame(width: 58, height: 27)
+                                                .foregroundStyle(.text)
+                                        )
+                                )
+                                .foregroundColor(.textColorInversed)
                     })
+                    }
+                    .padding(.trailing)
 
 
 
@@ -81,7 +86,8 @@ struct DetailView: View {
 
                             Text(" \(Int(weatherData.main.temp))°")
                                 .font(.custom("Avenir-Black", size: 112))
-                            //                        .padding()
+                                                
+
 
                             Text("HOT AS HELL")
                                 .font(.custom("Avenir-Medium", size: 18))

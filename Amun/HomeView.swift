@@ -8,15 +8,22 @@
 import SwiftUI
 
 struct HomeView: View {
-    @StateObject private var viewModel = WeatherViewModel()
-    @State private var sampleData = ["Montreal", "Paris", "Poland", "London"]
+    @StateObject private var viewModel = WeatherViewModel.shared
+//    @State private var sampleData = ["Montreal", "Paris", "Poland", "London"]
+    @State private var sampleData = ["Montreal"]
     @State private var locationArray: [String] = []
     @State private var dragOffset: [UUID: CGSize] = [:]
     @State private var opac: [UUID: Double] = [:]
+    @State private var deleteButtonopac: [UUID: Double] = [:]
     @State var buttonOffset: [UUID: CGSize] = [:]
     @State private var isEditing = false
     @State var isButtonVisible: [UUID: Bool] = [:]
     @State private var showAddLocationSheet = false
+    @State private var showSettingsSheet = false
+    @State private var unit: String = "ºC"
+
+    @State private var showError = false
+
 
     var body: some View {
         NavigationStack {
@@ -26,33 +33,35 @@ struct HomeView: View {
 
                 ScrollView {
                     VStack {
-                        ForEach(viewModel.locations) { locs in
-                            NavigationLink(destination: DetailView(location: locs)){
 
-                                
-                                HStack(spacing: -40) {
+
+                        ForEach(viewModel.locations) { locs in
+
+                            HStack {
+                                NavigationLink(destination: DetailView(location: locs)) {
+//                                    HStack {
                                     HStack {
                                         Image(locs.weatherDataModel?.weather[0].description.lowercased().contains("cloud") ?? false ? "wind" : "sun")
                                             .resizable()
                                             .scaledToFit()
-                                            .frame(width: 40, height: 40)
-                                            .padding(.leading, 20)
+                                            .frame(width: 60)
+                                            .padding(.leading, 10)
                                             .padding(.trailing, 10)
-                                        
+
                                         Text(locs.name)
                                             .font(.custom("Avenir-Black", size: 35))
                                             .foregroundStyle(.text)
-                                        
+
                                         Spacer()
-                                        
+
                                         if let weatherData = locs.weatherDataModel {
-                                            Text("\(Int(weatherData.main.temp))°C")
+                                            Text("\(Int(weatherData.main.temp))" + "\(unit)")
                                                 .font(.custom("Avenir-Black", size: 25))
                                                 .foregroundStyle(.text)
                                                 .opacity(0.3)
                                                 .padding()
                                         } else {
-                                            Text("Loading....")
+                                            //                                            Text("Loading....")
                                         }
                                     }
                                     .background {
@@ -62,96 +71,112 @@ struct HomeView: View {
                                                 .foregroundStyle(Color(.greyShadow))
                                                 .offset(y: 1)
                                                 .opacity(0.5)
-                                            
+
                                             Rectangle()
                                                 .frame(width: UIScreen.main.bounds.width, height: 85)
                                                 .foregroundStyle(Color(.weatherHolder))
                                         }
                                     }
+
                                     .foregroundColor(.textColorInversed)
                                     .padding(.bottom, 10)
-                                    //                                .opacity(isEditing ? 0.5 : 1)
                                     .opacity(opac[locs.id] ?? 1.0)
+                                    .overlay {
+                                        ZStack {
+                                            Rectangle()
+                                                .frame(width: UIScreen.main.bounds.width, height: 85)
+                                                .offset(x: 0, y: -4)
+                                                .foregroundStyle(Color(.dangerRed))
+
+                                            Text("Delete")
+                                                .font(.custom("Avenir-Black", size: 35))
+                                                .foregroundStyle(.text)
+                                        }
+                                        .opacity(deleteButtonopac[locs.id] ?? 0)
+                                        .onTapGesture {
+                                            if let index = viewModel.locations.firstIndex(of: locs) {
+                                                withAnimation(.easeInOut) {
+                                                    dragOffset[locs.id] = CGSize(width: UIScreen.main.bounds.width * -1.0, height: 0)
+
+                                                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
+                                                        viewModel.locations.remove(at: index)
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+
                                     .offset(dragOffset[locs.id] ?? .zero)
                                     .gesture(
                                         DragGesture()
                                             .onChanged { value in
-                                                //                                            if !isEditing {
+
                                                 if value.translation.width < -10 {
-                                                    
                                                     withAnimation(.easeInOut) {
-                                                        
                                                         dragOffset[locs.id] = CGSize(width: UIScreen.main.bounds.width * -0.15, height: 0)
-                                                        opac[locs.id] = 0.5 // Adjust opacity here
-                                                        
-                                                        
-                                                        
+                                                        opac[locs.id] = 0.5
+
+                                                        withAnimation(.easeInOut) {
+                                                            deleteButtonopac[locs.id] = 0.9 // Adjust the opacity value as needed
+                                                        }
                                                     }
-                                                    
                                                 }
                                             }
-                                        
+
                                             .onEnded { value in
-                                                
-                                                
-                                                
+
                                                 withAnimation(.easeInOut) {
-                                                    
-                                                    
-                                                    
                                                     if value.translation.width > 10 {
                                                         dragOffset[locs.id] = CGSize(width: UIScreen.main.bounds.width * 0, height: 0)
                                                         opac[locs.id] = 1.0
-                                                        
-                                                        
+//                                                            isButtonVisible[locs.id] = true
+
+                                                        withAnimation(.easeInOut) {
+                                                            deleteButtonopac[locs.id] = 0 // Adjust the opacity value as needed
+                                                        }
                                                     }
-                                                    
                                                 }
-                                                
                                             }
-                                        
                                     )
-                                    
-                                    if isButtonVisible[locs.id] ?? false {
-                                        Button(action: {
-                                            if let index = viewModel.locations.firstIndex(of: locs) {
-                                                
-                                                //                                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
-                                                //                                                withAnimation(.easeInOut)  {
-                                                viewModel.locations.remove(at: index)
-                                                
-                                                
-                                                //                                                }
-                                                //                                            }
-                                                
-                                                
-                                            }
-                                            
-                                        }, label: {
-                                            Text("Delete")
-                                                .font(.custom("Avenir-Medium", size: 14))
-                                                .frame(width: 58, height: .infinity, alignment: .center)
-                                                .foregroundStyle(Color(.white))
-                                                .background(
-                                                    RoundedRectangle(cornerRadius: 0)
-                                                        .frame(width: 58, height: 85)
-                                                        .foregroundStyle(Color(.dangerRed))
-                                                )
-                                                .offset(dragOffset[locs.id] ?? .zero)
-                                                .offset(x: 60, y: -4.5)
-                                                .foregroundColor(.textColorInversed)
-                                                .opacity(dragOffset[locs.id]?.width == -100 ? 0 : 1)
-                                            
-                                        })
-                                        //                                    .transition(.opacity)
+//                                    .onChange(of: viewModel.selectedUnit) { newValue in
+//                                        switch newValue {
+//                                        case "imperial":
+//                                            unit = "ºF"
+//                                            print("It is imperial")
+//                                        case "metric":
+//                                            unit = "ºC"
+//                                            print("It is metric")
+//                                        case "standard":
+//                                            unit = "ºK"
+//                                            print("It is standard")
+//                                        default:
+//                                            break
+//                                        }
+//                                    }
+
+                                    .onChange(of: viewModel.selectedUnit) { _, newValue in
+                                        switch newValue {
+                                        case "imperial":
+                                            unit = "ºF"
+                                            print("It is imperial")
+                                        case "metric":
+                                            unit = "ºC"
+                                            print("It is metric")
+                                        case "standard":
+                                            unit = "ºK"
+                                            print("It is standard")
+                                        default:
+                                            break
+                                        }
                                     }
                                 }
-                                
+                                .disabled(false)
+                                .navigationBarBackButtonHidden(true)
                             }
-                            .navigationBarBackButtonHidden(true)
+                            .frame(width: UIScreen.main.bounds.width, height: 86)
                         }
                     }
-                    
+                    .padding()
                     .onAppear {
                         if locationArray.isEmpty {
                             print("city is  empty")
@@ -163,22 +188,16 @@ struct HomeView: View {
                             }
                         }
                     }
-                    .padding()
-                    .frame(maxWidth: .infinity)
                 }
 
-                Spacer()
-
                 Button(action: {
-
                     showAddLocationSheet.toggle()
 
-
-                    locationArray.append("Waterloo")
-                    let sampleLocationDate = Location(name: "Waterloo")
-                    viewModel.locations.append(sampleLocationDate)
-                    viewModel.fetchWeather(for: sampleLocationDate)
-                    print("Button Pressed")
+//                    locationArray.append("Waterloo")
+//                    let sampleLocationDate = Location(name: "Waterloo")
+//                    viewModel.locations.append(sampleLocationDate)
+//                    viewModel.fetchWeather(for: sampleLocationDate)
+//                    print("Button Pressed")
 
                 }) {
                     Image(systemName: "plus")
@@ -202,9 +221,7 @@ struct HomeView: View {
                 .offset(x: UIScreen.main.bounds.width * 0.37, y: UIScreen.main.bounds.height * 0.37)
                 .disabled(isEditing)
                 .sheet(isPresented: $showAddLocationSheet, content: {
-
-                    InputView()
-
+                    InputView(viewModel: viewModel)
                         .presentationDetents([.large, .medium])
                         .interactiveDismissDisabled()
 
@@ -213,10 +230,12 @@ struct HomeView: View {
             .background(Color.red)
             .navigationTitle("Forecast")
             .toolbar {
-
-
                 ToolbarItem(placement: .topBarLeading) {
-                    Text(Date().formatted(.dateTime.day().weekday().month().year()))
+                    HStack(spacing: 2) {
+                        Text(Date().formatted(.dateTime.day().weekday().month()))
+                        Text(",")
+                        Text(Date().formatted(.dateTime.year(.twoDigits)))
+                    }
                 }
                 ToolbarItem {
                     Button(action: {
@@ -226,10 +245,10 @@ struct HomeView: View {
                             for locs in viewModel.locations {
                                 dragOffset[locs.id] = isEditing ? CGSize(width: UIScreen.main.bounds.width * -0.15, height: 0) : .zero
                                 opac[locs.id] = isEditing ? 0.5 : 1.0
+                                deleteButtonopac[locs.id] = isEditing ? 0.9 : 0
 
                                 DispatchQueue.main.asyncAfter(deadline: .now() + 1.2) {
 //                                    buttonOffset[locs.id] = isEditing ? CGSize(width: -10, height: -3) : .zero
-
 
                                     withAnimation(.easeInOut) {
                                         isButtonVisible[locs.id] = isEditing ? true : false
@@ -256,10 +275,9 @@ struct HomeView: View {
                             .foregroundColor(.textColorInversed)
                     })
                 }
-
                 ToolbarItem {
                     Button(action: {
-                        isEditing.toggle()
+                        showSettingsSheet.toggle()
 
                     }) {
                         Image(systemName: "gear")
@@ -279,9 +297,18 @@ struct HomeView: View {
                             )
                             .foregroundColor(.textColorInversed)
                             .cornerRadius(9)
+                            .sheet(isPresented: $showSettingsSheet, content: {
+                                SettingsView(viewModel: viewModel)
+                                    .presentationDetents([.large, .medium])
+                                    .interactiveDismissDisabled()
+
+                            })
                     }
                 }
             }
+
+
+
         }
     }
 }

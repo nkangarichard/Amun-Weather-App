@@ -20,7 +20,7 @@ struct OnboardingView: View {
         OnboardingPageModel(title: "Weather Forecast with Some Humour", image: "wind"),
         OnboardingPageModel(title: "Weather Forecast with Some Humour", image: "lightning"),
     ]
-
+    
     @State private var currentIndex = 0
     @State private var navigateToTestView = false
 

@@ -12,9 +12,12 @@
 		2C3212432B77440C00708D62 /* WeatherDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C3212422B77440C00708D62 /* WeatherDataModel.swift */; };
 		2C51C62A2B76E1EE000A4C55 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C51C6292B76E1EE000A4C55 /* HomeView.swift */; };
 		2C51C62C2B76EB61000A4C55 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C51C62B2B76EB61000A4C55 /* OnboardingView.swift */; };
+		2C5628882BBBC200006D285C /* LookinServer in Frameworks */ = {isa = PBXBuildFile; productRef = 2C5628872BBBC200006D285C /* LookinServer */; };
+		2C5B65382BC097A1005321F7 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5B65372BC097A1005321F7 /* SettingsView.swift */; };
 		2C5B87152BAA27D400D2BAA8 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5B87142BAA27D400D2BAA8 /* DetailView.swift */; };
 		2C79663A2B74866C00ADFF2D /* SplashScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7966392B74866C00ADFF2D /* SplashScreenView.swift */; };
 		2C9E85082BB22EC30037A098 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9E85072BB22EC30037A098 /* InputView.swift */; };
+		2CB6FFEE2BFE35D00009D667 /* ErrorPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB6FFED2BFE35D00009D667 /* ErrorPopupView.swift */; };
 		2CCD3B2B2B7165CE005A22D1 /* AmunApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCD3B2A2B7165CE005A22D1 /* AmunApp.swift */; };
 		2CCD3B2D2B7165CE005A22D1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCD3B2C2B7165CE005A22D1 /* ContentView.swift */; };
 		2CCD3B2F2B7165D0005A22D1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2CCD3B2E2B7165D0005A22D1 /* Assets.xcassets */; };
@@ -28,9 +31,11 @@
 		2C3212422B77440C00708D62 /* WeatherDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDataModel.swift; sourceTree = "<group>"; };
 		2C51C6292B76E1EE000A4C55 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		2C51C62B2B76EB61000A4C55 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		2C5B65372BC097A1005321F7 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		2C5B87142BAA27D400D2BAA8 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		2C7966392B74866C00ADFF2D /* SplashScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenView.swift; sourceTree = "<group>"; };
 		2C9E85072BB22EC30037A098 /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
+		2CB6FFED2BFE35D00009D667 /* ErrorPopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorPopupView.swift; sourceTree = "<group>"; };
 		2CCD3B272B7165CE005A22D1 /* Amun.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Amun.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CCD3B2A2B7165CE005A22D1 /* AmunApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmunApp.swift; sourceTree = "<group>"; };
 		2CCD3B2C2B7165CE005A22D1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -43,6 +48,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C5628882BBBC200006D285C /* LookinServer in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,8 +85,10 @@
 			isa = PBXGroup;
 			children = (
 				2C3212422B77440C00708D62 /* WeatherDataModel.swift */,
+				2C5B65372BC097A1005321F7 /* SettingsView.swift */,
 				2C51C62B2B76EB61000A4C55 /* OnboardingView.swift */,
 				2C51C6292B76E1EE000A4C55 /* HomeView.swift */,
+				2CB6FFED2BFE35D00009D667 /* ErrorPopupView.swift */,
 				2C9E85072BB22EC30037A098 /* InputView.swift */,
 				2C5B87142BAA27D400D2BAA8 /* DetailView.swift */,
 				2C2A50552B71E5AE0054F1BE /* Info.plist */,
@@ -117,6 +125,9 @@
 			dependencies = (
 			);
 			name = Amun;
+			packageProductDependencies = (
+				2C5628872BBBC200006D285C /* LookinServer */,
+			);
 			productName = Amun;
 			productReference = 2CCD3B272B7165CE005A22D1 /* Amun.app */;
 			productType = "com.apple.product-type.application";
@@ -145,6 +156,9 @@
 				Base,
 			);
 			mainGroup = 2CCD3B1E2B7165CE005A22D1;
+			packageReferences = (
+				2C5628862BBBC200006D285C /* XCRemoteSwiftPackageReference "LookinServer" */,
+			);
 			productRefGroup = 2CCD3B282B7165CE005A22D1 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -176,8 +190,10 @@
 				2C51C62A2B76E1EE000A4C55 /* HomeView.swift in Sources */,
 				2C79663A2B74866C00ADFF2D /* SplashScreenView.swift in Sources */,
 				2C3212432B77440C00708D62 /* WeatherDataModel.swift in Sources */,
+				2C5B65382BC097A1005321F7 /* SettingsView.swift in Sources */,
 				2C5B87152BAA27D400D2BAA8 /* DetailView.swift in Sources */,
 				2CCD3B2D2B7165CE005A22D1 /* ContentView.swift in Sources */,
+				2CB6FFEE2BFE35D00009D667 /* ErrorPopupView.swift in Sources */,
 				2C9E85082BB22EC30037A098 /* InputView.swift in Sources */,
 				2C51C62C2B76EB61000A4C55 /* OnboardingView.swift in Sources */,
 				2CCD3B2B2B7165CE005A22D1 /* AmunApp.swift in Sources */,
@@ -309,8 +325,10 @@
 		2CCD3B362B7165D0005A22D1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_ALTERNATE_APPICON_NAMES = "AppIcon-Cloudy AppIcon-Sun AppIcon-Default";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Amun/Preview Content\"";
@@ -338,8 +356,10 @@
 		2CCD3B372B7165D0005A22D1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_ALTERNATE_APPICON_NAMES = "AppIcon-Cloudy AppIcon-Sun AppIcon-Default";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Amun/Preview Content\"";
@@ -386,6 +406,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		2C5628862BBBC200006D285C /* XCRemoteSwiftPackageReference "LookinServer" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/QMUI/LookinServer/";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.2.7;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		2C5628872BBBC200006D285C /* LookinServer */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2C5628862BBBC200006D285C /* XCRemoteSwiftPackageReference "LookinServer" */;
+			productName = LookinServer;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 2CCD3B1F2B7165CE005A22D1 /* Project object */;
 }

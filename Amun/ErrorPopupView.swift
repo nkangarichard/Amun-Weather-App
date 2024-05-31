@@ -8,11 +8,24 @@
 import SwiftUI
 
 struct ErrorPopupView: View {
+
+    let errorMessage: String
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+
+                 Text(errorMessage)
+                     .font(.custom("Avenir-Black", size: 17))
+                     .foregroundColor(.white)
+                     .padding()
+                     .background(Color.red)
+                     .cornerRadius(10)
+                     .padding(.horizontal, 40)
+                     .shadow(color: .black.opacity(0.3), radius: 10, x: 0, y: 5)
+             
     }
+       
 }
 
 #Preview {
-    ErrorPopupView()
+    ErrorPopupView(errorMessage: "The location 'Invalid' could not be found.")
+               .previewLayout(.sizeThatFits)
 }
