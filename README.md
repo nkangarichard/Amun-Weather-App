@@ -44,8 +44,7 @@ Amun is a visually appealing and user-friendly weather app that provides accurat
 - Dynamic Weather Icons: Displays weather icons based on current conditions.
 
 ## Video Preview
-Comming soon😇
-<!--[Amun Weather App Video Preview](https://github.com/richardnkanga/Amun-Weather-App/assets/your-video-link) -->
+https://github.com/user-attachments/assets/bd773d28-a9f5-41a1-af75-4ca60fb9a2b7
 
 ## Usage
 
